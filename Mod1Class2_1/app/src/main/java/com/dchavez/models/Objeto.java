@@ -8,13 +8,14 @@ public class Objeto {
     private String textoDos;
     private String textoTres;
     private String textoCuatro;
+    private String rutaImagen;
 
-
-    public Objeto(String textoUno, String textoDos , String textoTres,String textoCuatro) {
+    public Objeto(String textoUno, String textoDos, String textoTres, String textoCuatro, String rutaImagen) {
         this.textoUno = textoUno;
-        this.textoCuatro = textoCuatro;
-        this.textoTres = textoTres;
         this.textoDos = textoDos;
+        this.textoTres = textoTres;
+        this.textoCuatro = textoCuatro;
+        this.rutaImagen = rutaImagen;
     }
 
     public String getTextoUno() {
@@ -47,5 +48,13 @@ public class Objeto {
 
     public void setTextoCuatro(String textoCuatro) {
         this.textoCuatro = textoCuatro;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 }

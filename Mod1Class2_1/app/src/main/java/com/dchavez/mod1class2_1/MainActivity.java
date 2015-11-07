@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ListaAdapter adapter;
     private EditText txtUno,txtDos,txtTres,txtCuatro;
     private Button guardar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         txtTres = (EditText)findViewById(R.id.txtTextTres);
         txtCuatro = (EditText)findViewById(R.id.txtTextoCuatro);
         guardar = (Button)findViewById(R.id.btnGrabar);
+        
     }
 
     @Override
@@ -59,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 String Dos = txtDos.getText().toString().trim();
                 String Tres = txtTres.getText().toString().trim();
                 String Cuatro = txtCuatro.getText().toString().trim();
+
                 /*Validamos que ingresado*/
                 if (Uno.length() > 0 && Dos.length() > 0 && Tres.length() > 0 && Cuatro.length() > 0) {
-                    lista.add(new Objeto(Uno,Dos,Tres,Cuatro));
+                    lista.add(new Objeto(Uno,Dos,Tres,Cuatro,"http://staticf5a.lavozdelinterior.com.ar/sites/default/files/styles/box_120_120/public/nota_periodistica/28_Jul_2015_20_17_02_richd-android.jpg"));
                     adapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(getApplicationContext(),getResources().getString(R.string.validacion),Toast.LENGTH_SHORT).show();

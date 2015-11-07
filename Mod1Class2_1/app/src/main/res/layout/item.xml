@@ -8,27 +8,42 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/item_lbl_TextoUno"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/lado_imagen"
+            android:layout_height="@dimen/lado_imagen"
+            android:id="@+id/ivImagen"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:layout_margin="@dimen/margin_layout"/>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/negro"/>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/item_lbl_TextoUno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/negro"/>
 
-        <TextView
-            android:id="@+id/item_lbl_TextoDos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/negro"/>
+            <TextView
+                android:id="@+id/item_lbl_TextoDos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/negro"/>
 
-        <TextView
-            android:id="@+id/item_lbl_TextoTres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/negro"
-            />
+            <TextView
+                android:id="@+id/item_lbl_TextoTres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/negro"
+                />
 
+        </LinearLayout>
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/item_lbl_TextoCuatro"
