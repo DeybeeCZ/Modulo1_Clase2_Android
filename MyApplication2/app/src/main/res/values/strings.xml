@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="img1">Image 1</string>
+    <string name="img2">Image 2</string>
+    <string name="img3">Image 3</string>
+    <string name="img4">Image 4</string>
+    <string name="img5">Image 5</string>
+    <string name="desc1">Whether </string>
+</resources>

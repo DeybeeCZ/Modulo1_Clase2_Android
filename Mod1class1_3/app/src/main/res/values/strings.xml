@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Mod1class1_3</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="procesar">Procesar</string>
+    <string name="precio">Ingrese Precio</string>
+    <string name="pizarra">Pizarra</string>
+    <string name="plumon">Plumon</string>
+    <string name="mota">Mota</string>
+</resources>

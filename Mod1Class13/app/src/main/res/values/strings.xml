@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Mod1Class1</string>
+
+    <string name="hello_world">Por un mundo si tivi</string>
+    <string name="action_settings">Opciones</string>
+</resources>
