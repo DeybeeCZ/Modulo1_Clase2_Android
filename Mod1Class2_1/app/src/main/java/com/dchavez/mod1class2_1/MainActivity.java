@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ListaAdapter adapter;
     private EditText txtUno,txtDos,txtTres,txtCuatro;
     private Button guardar;
+    private String Uno,Dos,Tres,Cuatro;
 
 
     @Override
@@ -49,37 +50,58 @@ public class MainActivity extends AppCompatActivity {
         txtTres = (EditText)findViewById(R.id.txtTextTres);
         txtCuatro = (EditText)findViewById(R.id.txtTextoCuatro);
         guardar = (Button)findViewById(R.id.btnGrabar);
-        
+        guardar.setTag(-1);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         guardar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                String Uno = txtUno.getText().toString().trim();
-                String Dos = txtDos.getText().toString().trim();
-                String Tres = txtTres.getText().toString().trim();
-                String Cuatro = txtCuatro.getText().toString().trim();
-
+                int valor = (int) guardar.getTag();
+                Uno = txtUno.getText().toString().trim();
+                Dos = txtDos.getText().toString().trim();
+                Tres = txtTres.getText().toString().trim();
+                Cuatro = txtCuatro.getText().toString().trim();
+                if (valor == -1) {
                 /*Validamos que ingresado*/
-                if (Uno.length() > 0 && Dos.length() > 0 && Tres.length() > 0 && Cuatro.length() > 0) {
-                    lista.add(new Objeto(Uno,Dos,Tres,Cuatro,"http://staticf5a.lavozdelinterior.com.ar/sites/default/files/styles/box_120_120/public/nota_periodistica/28_Jul_2015_20_17_02_richd-android.jpg"));
-                    adapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.validacion),Toast.LENGTH_SHORT).show();
-                }
+                    if (Uno.length() > 0 && Dos.length() > 0 && Tres.length() > 0 && Cuatro.length() > 0) {
+                        lista.add(new Objeto(Uno, Dos, Tres, Cuatro, "http://staticf5a.lavozdelinterior.com.ar/sites/default/files/styles/box_120_120/public/nota_periodistica/28_Jul_2015_20_17_02_richd-android.jpg"));
+                        adapter.notifyDataSetChanged();
 
+                    } else {
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.validacion), Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    lista.get(valor).setTextoUno(Uno);
+                    lista.get(valor).setTextoDos(Dos);
+                    lista.get(valor).setTextoTres(Tres);
+                    lista.get(valor).setTextoCuatro(Cuatro);
+                    guardar.setTag(-1);
+                }
+                adapter.notifyDataSetChanged();
             }
+
         });
-        lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Objeto item = lista.get(position);
-                Toast.makeText(getApplicationContext(), item.getTextoUno() + " " + item.getTextoDos() + " " + item.getTextoTres() + " " + item.getTextoCuatro(), Toast.LENGTH_SHORT).show();
-            }
-        });
+
+            lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener()
+
+            {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Objeto item = lista.get(position);
+                    //Toast.makeText(getApplicationContext(), item.getTextoUno() + " " + item.getTextoDos() + " " + item.getTextoTres() + " " + item.getTextoCuatro(), Toast.LENGTH_SHORT).show();
+                    txtUno.setText(item.getTextoUno());
+                    txtDos.setText(item.getTextoDos());
+                    txtTres.setText(item.getTextoTres());
+                    txtCuatro.setText(item.getTextoCuatro());
+                    guardar.setTag(position);
+                }
+            });
 
     }
 }
