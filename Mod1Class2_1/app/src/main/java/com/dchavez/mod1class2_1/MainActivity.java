@@ -1,5 +1,7 @@
 package com.dchavez.mod1class2_1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -83,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
                     lista.get(valor).setTextoCuatro(Cuatro);
                     guardar.setTag(-1);
                 }
+                txtUno.setText("");
+                txtDos.setText("");
+                txtTres.setText("");
+                txtCuatro.setText("");
                 adapter.notifyDataSetChanged();
             }
 
@@ -92,14 +98,43 @@ public class MainActivity extends AppCompatActivity {
 
             {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Objeto item = lista.get(position);
-                    //Toast.makeText(getApplicationContext(), item.getTextoUno() + " " + item.getTextoDos() + " " + item.getTextoTres() + " " + item.getTextoCuatro(), Toast.LENGTH_SHORT).show();
-                    txtUno.setText(item.getTextoUno());
-                    txtDos.setText(item.getTextoDos());
-                    txtTres.setText(item.getTextoTres());
-                    txtCuatro.setText(item.getTextoCuatro());
-                    guardar.setTag(position);
+                public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                    alertDialog.setTitle("Mensaje");
+                    alertDialog.setMessage("Seleccione una opcion");
+                    alertDialog.setPositiveButton("Modificar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Objeto item = lista.get(position);
+                            //Toast.makeText(getApplicationContext(), item.getTextoUno() + " " + item.getTextoDos() + " " + item.getTextoTres() + " " + item.getTextoCuatro(), Toast.LENGTH_SHORT).show();
+                            txtUno.setText(item.getTextoUno());
+                            txtDos.setText(item.getTextoDos());
+                            txtTres.setText(item.getTextoTres());
+                            txtCuatro.setText(item.getTextoCuatro());
+                            guardar.setTag(position);
+                        }
+                    });
+
+                    alertDialog.setNegativeButton("Eliminar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            lista.remove(position);
+                            txtUno.setText("");
+                            txtDos.setText("");
+                            txtTres.setText("");
+                            txtCuatro.setText("");
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                    alertDialog.setNeutralButton("Neutro", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    alertDialog.show();
+
+
                 }
             });
 

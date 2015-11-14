@@ -9,4 +9,6 @@
     <string name="texto_Cuatro">Texto Cuatro</string>
     <string name="grabar">Grabar</string>
     <string name="validacion">Deben estar llenos los imputs</string>
+    <string name="title_alert">Mensaje</string>
+    <string name="message_alert">Seleccione una opcion</string>
 </resources>
